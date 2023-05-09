@@ -17,3 +17,5 @@ Looking up creating a file... I should know this...
 Good info [here](https://www.guru99.com/reading-and-writing-files-in-python.html); might be able to skip some steps  
 
 going to uplevel this by making the filename a timestamp. that way I can track my outputs as I test. I think I did this before in another project; looking before I bother writing something  
+
+Found it and used it. We now have a script that makes a file and can write text to it. Going to stop here for the day.
