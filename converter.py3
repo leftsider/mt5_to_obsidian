@@ -1,6 +1,7 @@
 
 import time 
 import os
+import mmap
 
 
 
@@ -9,15 +10,32 @@ import os
 timestamp = time.strftime("%Y%m%d-%H%M%S")
 timestamp_filename = "output/newfile" + timestamp + ".md"
 new_doc = open(timestamp_filename, "w+")
-new_doc.write('hello world')
+new_doc.write('just a file whose name tells you when the other files in this folder were created')
 new_doc.close()
 
-read_doc = open("source_files/sampletxt.txt", "r")
-copy = read_doc.read()
+#read_doc = open("source_files/sampletxt.txt", "r")
+#copy = read_doc.read()
 
-new_doc = open(timestamp_filename, "a")
-new_doc.write(copy)
-new_doc.close()
+with open('source_files/leftsider.txt', 'r') as f:
+   # memory-map the file
+   mmapped_file = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ)
 
-read_doc.close
+   # split the file by newline characters
+   lines = mmapped_file.read().split('--------\n')
+
+#close('source_files/leftsider.txt')   
+   
+# create new md files for split items   
+   for i, line in enumerate(lines):
+	   with open(f"output/{i}.md", "w") as f:
+		   f.write(line)
+   
+   print(f"Created {len(lines)} new files.")
+
+#new_doc = open(timestamp_filename, "a")
+#new_doc.write(copy)
+#new_doc.close()
+#
+#read_doc.close
+
 
