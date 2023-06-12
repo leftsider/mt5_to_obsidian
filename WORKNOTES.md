@@ -1,5 +1,33 @@
 # worknotes
-_just scrap paper where I track my progress and thoughts. Half journal of effort; half talking to the duck._
+_just scrap paper where I, a non-developer track my progress and thoughts developing this script. Half journal of effort; half talking to the duck._
+
+
+## 2023 06 11
+1. ~~script that makes markdown file~~
+2. ~~script that makes markdown file with text~~
+3. ~~script that makes markdown file with text from a source~~ 
+4. ~~script that makes markdown file with a portion of text from a source~~ *NEW*
+5. ~~script that makes markdown file for each portion of text from a source~~ *NEW*
+
+My bard-generated code from last time spit out an error 
+
+```
+ File "/converter.py3", line 24, in <module>
+	lines = mmapped_file.read().split('--------\n')
+TypeError: a bytes-like object is required, not 'str'
+```
+Copied that error into a search and it seems to be due to using python2 code in a python3 environment, which doesn't handle encoding in the same way. I could change my bard query to specify python3, but it's probably helpful to figure this out the manual way.
+
+Specifically, if I understand correctly, I needed to `encode()` my delimiter to bytes. This resulted in another error further down
+
+```
+  File "/converter.py3", line 32, in <module>
+	f.write(line)
+TypeError: write() argument must be str, not bytes
+```
+To which I then needed to `decode()` the items in the list? At any rate, this removed the error and now this works. 
+
+I have achieved my objective and this will end development on this script here. Thanks for playing.
 
 
 ## 2023 06 03
