@@ -1,6 +1,17 @@
 # worknotes
-_just scrap paper where I, a non-developer track my progress and thoughts developing this script. Half journal of effort; half talking to the duck._
+_just scrap paper where I, a non-developer track my progress and thoughts developing these tools. Half journal of effort; half talking to the duck._
 
+
+## 2023 08 19
+So the converter.py3 file did what it needed to do (convert one text file archive of my blog to a bunch of posts in separate .md files), but it was a little annoying that I'd been left with a set of numbered files.
+
+Rather than further develop this tool, which I no longer needed, I instead decided to create another script specifically designed to rename all those files to something more useful. 
+
+I used google bard from the start this time. At first I wanted to have the filenames be a timestamp, but then I remembered that my files included the basename used in the URL in MT5. So I worked with that. 
+
+After about five prompt variations, I landed on something that I could tweak and modify across the finish line myself. 
+
+And so, now we have two files: converter.py3 and renamer.py3. Next step is to create a script that takes these files and puts them in date based subdirectories. I'll call that arranger.py3
 
 ## 2023 06 11
 1. ~~script that makes markdown file~~
